@@ -1,0 +1,63 @@
+textarea {
+    min-height: 400px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.col{
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.email-subject{
+    margin: 0 5px 0 5px;
+    flex-grow: 4;
+    cursor: pointer;
+}
+.rows-email{
+    background-color: white;
+    border-top: 1px solid;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.rows-email:hover{
+    opacity: 1;
+    background-color: #A4A7AB;
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+.read-email{
+    background-color: #A4A7AB;
+    border-top: 1px solid;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.read-email:hover{
+    background-color: white;
+    opacity: 1;
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+
+.btn{
+    padding: 5px 20px 5px 20px;
+}
+.btn_email{
+    border: 1px solid;
+    font-weight: 500;
+}
+#email_reply:hover{
+    background-color: rgb(0, 118, 253);
+    color: white;
+}
+#email_archived:hover{
+    background-color: rgb(247, 6, 6);
+    color: white;
+}

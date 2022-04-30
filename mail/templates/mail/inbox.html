@@ -1,0 +1,54 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2 id="hello">{{ request.user.email }}</h2>
+
+    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
+    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
+    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
+    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+    <hr>
+    
+    <!-- this is the email details -->
+    <div id="email_details" class="card">
+        <h5 class="card-header" id="email_subject">Subject</h5>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <textarea class="form-control" id="email_body" disabled></textarea>
+            <footer class="blockquote-footer">From: <cite title="Source Title" id="email_sender">email of the sender</cite>
+                To: <cite title="Source Title" id="email_recipients">email of the recipients</cite></footer>
+                <p><small class="text-muted"id="email_time">00-00-00</small></p> 
+          </blockquote>
+          <button id="email_reply"class="btn btn_email">Reply</button>
+          <button id="email_archived"class="btn btn_email">Archived</button>
+        </div>
+      </div>
+
+    <!-- this are the emails -->
+    <div id="emails-view">
+    </div>
+
+    <!-- this is the compose form -->
+    <div id="compose-view">
+        <h3 id="replyTitle">New Email</h3>
+        <form id="compose-form">
+            <div class="form-group">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group">
+                To: <input id="compose-recipients" class="form-control">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}
